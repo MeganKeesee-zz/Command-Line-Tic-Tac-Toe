@@ -37,7 +37,8 @@ const printBoard = () => {
 };
 //confirm that the inputted value is an integer (boolean)
 const isInteger = (value) => {
-  if (isNaN(value) || !Number.isInteger(value)) {
+  let x = parseInt(value);
+  if (isNaN(x) || !Number.isInteger(x)) {
     return false;
   }
   return true;
@@ -74,6 +75,7 @@ const handlePlayerTurn = (player) => {
   console.log(`Player ${player}'s turn`);
   prompt.start();
   prompt.get(['position'], (err, res) => {
+    console.log(res);
     if(validateMove(res.position)) {
       markPosition(res.position, player);
       printBoard();
